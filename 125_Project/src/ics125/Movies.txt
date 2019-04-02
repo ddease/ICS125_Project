@@ -1,2 +1,2 @@
 Us,R,Horror film,Friday,10pm,Lupita Nyong'o
-Toy Story 4,Tuesday,6pm,
+Toy Story 4,PG,kids show,Tuesday,6pm,Will Smith

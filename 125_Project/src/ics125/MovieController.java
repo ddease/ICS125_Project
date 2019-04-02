@@ -61,20 +61,53 @@ class MovieController {
     }
     
 
-    private static class PrevButtonListener implements ActionListener {
+    private  class PrevButtonListener implements ActionListener {
 
-
-        @Override
+ @Override
         public void actionPerformed(ActionEvent e) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+             theView.EnableNext();
+            
+           if(theModel.getcurrentMovieNum()== 0){
+              
+               return;
+           }
+              
+          
+           try{
+               theModel.prevMovie();
+               if(theModel.getcurrentMovieNum()== 0){
+              theView.disablePrev();
+               }
+           }catch (Exception ex){
+               System.out.println(ex);
+               theView.displayErrorMessage(
+               "Error: There is a problem setting a previous contract:");
+           }
+           setUpDisplay();
         }
     }
 
-    private static class NextButtonListener implements ActionListener {
+    private  class NextButtonListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+             
+            if(theModel.getcurrentMovieNum()== theModel.getMovieCount()-1){
+               
+                return;
+            }
+            theView.enablePrev();
+            try{
+                theModel.nextMovie();
+                if(theModel.getcurrentMovieNum()== theModel.getMovieCount()-1){
+                    theView.disableNext();
+                }
+            }catch (Exception ex){
+               System.out.println(ex);
+               theView.displayErrorMessage(
+               "Error: There is a problem setting a next contract.");
+            }
+            setUpDisplay();
         }
     }
     
