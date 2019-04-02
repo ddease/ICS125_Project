@@ -15,7 +15,6 @@ public class Movie {
     String description;
     String showtime;
     String day;
-   
     String actor;
     
     public Movie(String title, String rating, String description, String showtime, String day, String actor){
@@ -28,8 +27,21 @@ public class Movie {
         
         
     }
-    public String dispalyMovie(){
-        
-        return 
+   
+
+    String getMovieName() {
+       return title;
+    }
+
+    String getDescription() {
+        return description;
+    }
+
+    String getShowTime() {
+        return showtime;
+    }
+
+    String getActor() {
+       return actor;
     }
 }
