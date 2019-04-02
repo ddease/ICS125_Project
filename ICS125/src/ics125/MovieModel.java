@@ -5,10 +5,14 @@
  */
 package ics125;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author C0438956
  */
 class MovieModel {
+    ArrayList<Movie> movies = new ArrayList();
+    
     
 }
