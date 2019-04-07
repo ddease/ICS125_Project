@@ -35,7 +35,7 @@ public class MovieView extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         prevButton = new javax.swing.JButton();
         nextButton = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        SelectMovieButton = new javax.swing.JButton();
         movienameLabel = new javax.swing.JLabel();
         showtimeLabel = new javax.swing.JLabel();
         DescriptionLabel = new javax.swing.JLabel();
@@ -43,8 +43,8 @@ public class MovieView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setAutoRequestFocus(false);
-        setBackground(new java.awt.Color(51, 255, 204));
+        setAlwaysOnTop(true);
+        setBackground(new java.awt.Color(255, 102, 102));
         setForeground(java.awt.Color.magenta);
 
         jLabel17.setText("Movie:");
@@ -59,10 +59,10 @@ public class MovieView extends javax.swing.JFrame {
 
         nextButton.setText("Next");
 
-        jButton3.setText("Select movie");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        SelectMovieButton.setText("Select movie");
+        SelectMovieButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                SelectMovieButtonActionPerformed(evt);
             }
         });
 
@@ -86,7 +86,7 @@ public class MovieView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(nextButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
+                .addComponent(SelectMovieButton)
                 .addGap(6, 6, 6))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,16 +142,16 @@ public class MovieView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(prevButton)
                     .addComponent(nextButton)
-                    .addComponent(jButton3))
+                    .addComponent(SelectMovieButton))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void SelectMovieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectMovieButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_SelectMovieButtonActionPerformed
 
     void addNextListener(ActionListener listenFornextButton){
         nextButton.addActionListener(listenFornextButton);
@@ -172,13 +172,16 @@ public class MovieView extends javax.swing.JFrame {
      void setshowtime(String time){
         showtimeLabel.setText(time);
     }
+        void addSelectMovieListener(ActionListener listenForSelectButton){
+        SelectMovieButton.addActionListener(listenForSelectButton);
+    }
      
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel DescriptionLabel;
+    private javax.swing.JButton SelectMovieButton;
     private javax.swing.JLabel actorLabel;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
