@@ -32,7 +32,7 @@ class MovieModel {
         movies = new ArrayList<>();
 
         String fileName;
-            fileName = "C:\\Users\\dawso\\Desktop\\ICS125_Projects\\ICS125_Project\\125_Project\\src\\ics125\\Movies.txt";
+            fileName = "C:\\Users\\C0422594\\Documents\\NetBeansProjects\\ICS125_Project\\125_Project\\src\\ics125\\Movies.txt";
         try(
             FileReader fileReader = new FileReader(fileName);
             BufferedReader bufferedReader = new BufferedReader(fileReader)){

@@ -45,7 +45,8 @@ public class MovieView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(255, 102, 102));
-        setForeground(java.awt.Color.magenta);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setForeground(java.awt.Color.pink);
 
         jLabel17.setText("Movie:");
 

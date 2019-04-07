@@ -18,5 +18,6 @@ public class SelectMovie {
         MovieModel theModel = new MovieModel();
         MovieController theController = new MovieController(theView,theModel);
         theView.setVisible(true);
+        
     }
 }

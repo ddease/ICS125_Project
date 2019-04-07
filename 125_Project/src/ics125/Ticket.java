@@ -9,6 +9,7 @@ package ics125;
  *
  * @author C0438956
  */
+
 public class Ticket {
     
 }

@@ -21,6 +21,7 @@ class MovieController {
         this.theModel= theModel;
         this.theView.addPrevListener(new PrevButtonListener());
         this.theView.addNextListener(new NextButtonListener());
+        this.theView.addSelectMovieListener(new SelectButtonListener());
 
         setUpDisplay();
     }
@@ -59,6 +60,24 @@ class MovieController {
             +"               Contract number ");
         }
     }
+
+    private class SelectButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            try{
+                TicketView tv;
+                tv=new TicketView(theView, true, theModel.getTheMovie());
+           
+                tv.setVisible(true);
+            }catch(Exception ex){
+                System.out.println(ex);
+                theView.displayErrorMessage("Error bro");
+            }
+        }
+
+       
+        }
+    
     
 
     private  class PrevButtonListener implements ActionListener {
