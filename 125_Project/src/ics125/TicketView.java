@@ -5,22 +5,47 @@
  */
 package ics125;
 
+import javax.swing.GroupLayout;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.SpinnerModel;
+import javax.swing.SpinnerNumberModel;
+
 /**
  *
  * @author C0422594
  */
-public class TicketView extends javax.swing.JPanel {
+public class TicketView extends javax.swing.JDialog{
 
     /**
      * Creates new form TicketView
      */
-    public TicketView() {
-        initComponents();
-    }
+   
 
     TicketView(MovieView theView, boolean b, Movie theMovie) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
+      
+   
+        initComponents();
+        
+        this.seniorPriceLabel.setText("works");
+        this.childPriceLabel.setText("works");
+        this.adultPriceLabel.setText("works");
+        
+        
+        Integer startValue =100;
+        Integer minValue = 100;
+        Integer maxValue = 10000;
+        Integer stepValue = 50;
+        SpinnerModel numModel = new SpinnerNumberModel(startValue, minValue,maxValue,stepValue);
+        jSpinner1.setModel(numModel);
+       
     }
+
+  
+
+   
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
