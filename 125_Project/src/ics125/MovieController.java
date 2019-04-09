@@ -36,6 +36,7 @@ class MovieController {
                 theView.setDescription(m.getDescription());
                 theView.setActor(m.getActor());
                 theView.setshowtime(m.getShowTime());
+                theView.setRating(m.getRating());
                 
                 
             }else{
@@ -67,7 +68,7 @@ class MovieController {
             try{
                 TicketView tv;
                 tv=new TicketView(theView, true, theModel.getTheMovie());
-           
+                tv.setLocationRelativeTo(null);
                 tv.setVisible(true);
             }catch(Exception ex){
                 System.out.println(ex);

@@ -28,6 +28,9 @@ public class Movie {
         
     }
    
+    String getRating(){
+     return rating;   
+    }
 
     String getMovieName() {
        return title;
