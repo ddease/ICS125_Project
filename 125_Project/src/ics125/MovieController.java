@@ -8,6 +8,7 @@ package ics125;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 /**
  *
  * @author C0438956
@@ -15,17 +16,26 @@ import java.awt.event.ActionListener;
 class MovieController {
     private final MovieModel theModel;
     private final MovieView theView;
+   
+    
+    String[] day={"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
+    String[] time={"10am","12pm","3pm","6pm","9pm","10pm"};
     
     MovieController(MovieView view, MovieModel theModel){
         this.theView = view;
         this.theModel= theModel;
+        
         this.theView.addPrevListener(new PrevButtonListener());
         this.theView.addNextListener(new NextButtonListener());
         this.theView.addSelectMovieListener(new SelectButtonListener());
+       
+        
 
         setUpDisplay();
     }
-
+    
+        
+    
     private void setUpDisplay() {
         try{
            
@@ -34,16 +44,16 @@ class MovieController {
                 m = theModel.getTheMovie();
                 theView.setMovieName(m.getMovieName());
                 theView.setDescription(m.getDescription());
-                theView.setActor(m.getActor());
-                theView.setshowtime(m.getShowTime());
+                theView.setActor(m.getActor());             
                 theView.setRating(m.getRating());
+                theView.setDay(day);
+                theView.setTime(time);
                 
                 
             }else{
             theView.setMovieName("???");
             theView.setDescription("???");
             theView.setActor("???");
-            theView.setshowtime("???");
             }
             if(theModel.getcurrentMovieNum() == 0){
               theView.disablePrev();
@@ -67,7 +77,7 @@ class MovieController {
         public void actionPerformed(ActionEvent e) {
             try{
                 TicketView tv;
-                tv=new TicketView(theView, true, theModel.getTheMovie());
+                tv=new TicketView(theView, true, theModel.getTheMovie(),theModel);
                 tv.setLocationRelativeTo(null);
                 tv.setVisible(true);
             }catch(Exception ex){
@@ -79,7 +89,7 @@ class MovieController {
        
         }
     
-    
+   
 
     private  class PrevButtonListener implements ActionListener {
 

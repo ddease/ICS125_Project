@@ -5,11 +5,9 @@
  */
 package ics125;
 
-import java.time.LocalDateTime;
-import javax.swing.GroupLayout;
-import javax.swing.JFrame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
 
@@ -22,24 +20,29 @@ public class TicketView extends javax.swing.JDialog{
     /**
      * Creates new form TicketView
      */
+    private final MovieView theView;
+    private final MovieModel themodel;
+  
    
-
-    TicketView(MovieView theView, boolean b, Movie theMovie) {
+   
+    
+    TicketView(MovieView theView, boolean b, Movie theMovie, MovieModel model) {
        super(theView,b);
-      
+      this.theView=theView;
        rating =theMovie.getRating();
+       this.themodel =model;
         initComponents();
        
-        System.out.print(LocalDateTime.now().getHour());
+        
         
 
         // if local time is between 1pm and 4pm 
-        if(LocalDateTime.now().getHour() >=13 && LocalDateTime.now().getHour() <=16 ){ 
+        if(theView.getTime().equals("3pm")){ 
             this.seniorPriceLabel.setText("$11.50");
             this.childPriceLabel.setText("$10.99");
             this.adultPriceLabel.setText("$14.25");
         //local time must be tuesday to get these prices below
-        }else if(LocalDateTime.now().getDayOfWeek().toString().equals("TUESDAY")){
+        }else if(theView.getDay().equals("Tuesday")){
             this.seniorPriceLabel.setText("$6.75");
             this.childPriceLabel.setText("$6.75");
             this.adultPriceLabel.setText("$6.75");
@@ -62,6 +65,8 @@ public class TicketView extends javax.swing.JDialog{
         adultAmount.setModel(numModel2);
         childAmount.setModel(numModel3);  
     }
+
+   
 
     int getSeniorTickets(){
        return (Integer) seniorAmount.getValue();
@@ -102,7 +107,7 @@ public class TicketView extends javax.swing.JDialog{
         jLabel2 = new javax.swing.JLabel();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton1 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        purchase = new javax.swing.JButton();
 
         jScrollPane1.setViewportView(jEditorPane1);
 
@@ -148,11 +153,12 @@ public class TicketView extends javax.swing.JDialog{
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(102, 0, 102));
-        jButton1.setText("Purchase Tickets");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        purchase.setBackground(new java.awt.Color(102, 0, 102));
+        purchase.setForeground(new java.awt.Color(255, 255, 255));
+        purchase.setText("Purchase Tickets");
+        purchase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                purchaseActionPerformed(evt);
             }
         });
 
@@ -166,10 +172,14 @@ public class TicketView extends javax.swing.JDialog{
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(adultPriceLabel)
-                            .addComponent(childPriceLabel)
-                            .addComponent(seniorPriceLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(43, 43, 43)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(adultPriceLabel)
+                                    .addComponent(childPriceLabel))
+                                .addGap(43, 43, 43))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(seniorPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(childAmount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(adultAmount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -189,7 +199,7 @@ public class TicketView extends javax.swing.JDialog{
                         .addComponent(jRadioButton2))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                        .addComponent(purchase)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -217,11 +227,11 @@ public class TicketView extends javax.swing.JDialog{
                     .addComponent(childPriceLabel)
                     .addComponent(childAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(51, 51, 51)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jRadioButton1))
                 .addGap(7, 7, 7)
-                .addComponent(jButton1)
+                .addComponent(purchase)
                 .addContainerGap())
         );
 
@@ -239,7 +249,7 @@ public class TicketView extends javax.swing.JDialog{
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void purchaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchaseActionPerformed
            System.out.print(getSeniorTickets());
            System.out.print(getAdultTickets());
            System.out.print(getChildTickets());
@@ -250,7 +260,16 @@ public class TicketView extends javax.swing.JDialog{
                 JOptionPane.showMessageDialog(null, "Must have a ticket picked to pay", "alert", 2);
                 return;
            }
-    }//GEN-LAST:event_jButton1ActionPerformed
+           try{
+                PaymentView pv;
+                pv=new PaymentView(theView, true);
+                pv.setLocationRelativeTo(null);
+                pv.setVisible(true);
+            }catch(Exception ex){
+                System.out.println(ex);
+                theView.displayErrorMessage("Error bro");
+            }
+    }//GEN-LAST:event_purchaseActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
@@ -265,15 +284,16 @@ public class TicketView extends javax.swing.JDialog{
     private javax.swing.JSpinner childAmount;
     private javax.swing.JLabel childLabel;
     private javax.swing.JLabel childPriceLabel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton purchase;
     private javax.swing.JSpinner seniorAmount;
     private javax.swing.JLabel seniorLabel;
     private javax.swing.JLabel seniorPriceLabel;
     // End of variables declaration//GEN-END:variables
+
 }

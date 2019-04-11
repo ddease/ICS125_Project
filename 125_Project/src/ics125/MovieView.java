@@ -6,6 +6,8 @@
 package ics125;
 
 import java.awt.event.ActionListener;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -38,12 +40,14 @@ public class MovieView extends javax.swing.JFrame {
         nextButton = new javax.swing.JButton();
         SelectMovieButton = new javax.swing.JButton();
         movienameLabel = new javax.swing.JLabel();
-        showtimeLabel = new javax.swing.JLabel();
         DescriptionLabel = new javax.swing.JLabel();
         actorLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         ratingLabel = new javax.swing.JLabel();
+        timeCombo = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        dayCombo = new javax.swing.JComboBox<>();
 
         jPanel1.setBackground(new java.awt.Color(102, 255, 102));
 
@@ -85,8 +89,6 @@ public class MovieView extends javax.swing.JFrame {
 
         movienameLabel.setText("jLabel21");
 
-        showtimeLabel.setText("jLabel22");
-
         DescriptionLabel.setText("jLabel23");
 
         actorLabel.setText("jLabel24");
@@ -96,6 +98,17 @@ public class MovieView extends javax.swing.JFrame {
         jLabel2.setText("Rating:");
 
         ratingLabel.setText("jLabel3");
+
+        timeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        timeCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                timeComboActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Day:");
+
+        dayCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -114,32 +127,37 @@ public class MovieView extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addContainerGap(181, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel20)
-                                .addGap(71, 71, 71))
+                            .addComponent(jLabel3)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(45, 45, 45)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel18))
-                            .addGap(40, 40, 40)))
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(movienameLabel)
-                    .addComponent(showtimeLabel)
-                    .addComponent(actorLabel)
-                    .addComponent(ratingLabel)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(DescriptionLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel20)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(DescriptionLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(78, 78, 78))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(timeCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(movienameLabel)
+                                    .addComponent(dayCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(actorLabel)
+                                    .addComponent(ratingLabel))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,28 +168,35 @@ public class MovieView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(movienameLabel)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(dayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
-                    .addComponent(showtimeLabel))
+                    .addComponent(timeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(ratingLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(DescriptionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DescriptionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(actorLabel)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(actorLabel))
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(prevButton)
                     .addComponent(nextButton)
                     .addComponent(SelectMovieButton))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
@@ -180,6 +205,12 @@ public class MovieView extends javax.swing.JFrame {
     private void SelectMovieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectMovieButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SelectMovieButtonActionPerformed
+
+    private void timeComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timeComboActionPerformed
+        
+
+    
+    }//GEN-LAST:event_timeComboActionPerformed
 
     void addNextListener(ActionListener listenFornextButton){
         nextButton.addActionListener(listenFornextButton);
@@ -197,31 +228,49 @@ public class MovieView extends javax.swing.JFrame {
      void setActor(String actor){
         actorLabel.setText(actor);
     }
-     void setshowtime(String time){
-        showtimeLabel.setText(time);
-    }
+     
         void addSelectMovieListener(ActionListener listenForSelectButton){
         SelectMovieButton.addActionListener(listenForSelectButton);
+        
     }
      
-
+    void setDay(String [] list){
+        final DefaultComboBoxModel model = new DefaultComboBoxModel(list);
+        this.dayCombo.setModel(model);
+    }
+    void setTime(String [] list){
+        final DefaultComboBoxModel model = new DefaultComboBoxModel(list);
+        this.timeCombo.setModel(model);
+    }
+    
+    String getDay(){
+    String varName;
+     varName = (String) dayCombo.getSelectedItem();
+     return varName;
+    }
+    String getTime(){
+       String time = (String) timeCombo.getSelectedItem();
+       return time;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel DescriptionLabel;
     private javax.swing.JButton SelectMovieButton;
     private javax.swing.JLabel actorLabel;
+    private javax.swing.JComboBox<String> dayCombo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel movienameLabel;
     private javax.swing.JButton nextButton;
     private javax.swing.JButton prevButton;
     private javax.swing.JLabel ratingLabel;
-    private javax.swing.JLabel showtimeLabel;
+    private javax.swing.JComboBox<String> timeCombo;
     // End of variables declaration//GEN-END:variables
 
     void disablePrev() {
