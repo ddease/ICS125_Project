@@ -5,9 +5,9 @@
  */
 package ics125;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import static java.lang.Integer.parseInt;
+
+import static java.lang.Float.parseFloat;
+
 import javax.swing.JOptionPane;
 import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
@@ -67,16 +67,16 @@ public class TicketView extends javax.swing.JDialog{
         childAmount.setModel(numModel3);  
     }
 
-   int getSeniorPrice(){
-       int result = parseInt(seniorPriceLabel.getText());
+   float getSeniorPrice(){
+       float result = parseFloat(charRemoveAt(seniorPriceLabel.getText(),0));
        return result;
    }
-    int getAdultPrice(){
-       int result = parseInt(adultPriceLabel.getText());
+    float getAdultPrice(){
+       float result = parseFloat( charRemoveAt(adultPriceLabel.getText(), 0));
        return result;
    }
-     int getChildPrice(){
-       int result = parseInt(childPriceLabel.getText());
+     float getChildPrice(){
+       float result = parseFloat(charRemoveAt(childPriceLabel.getText(),0));
        return result;
    }
 
@@ -89,6 +89,10 @@ public class TicketView extends javax.swing.JDialog{
     int getChildTickets(){
        return (Integer) childAmount.getValue();
     }
+    public static String charRemoveAt(String str, int p) {  
+              return str.substring(0, p) + str.substring(p + 1);  
+           } 
+    
   
 
    
@@ -118,7 +122,7 @@ public class TicketView extends javax.swing.JDialog{
         childPriceLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         debitRadio = new javax.swing.JRadioButton();
-        ceditRadio = new javax.swing.JRadioButton();
+        creditRadio = new javax.swing.JRadioButton();
         purchase = new javax.swing.JButton();
 
         jScrollPane1.setViewportView(jEditorPane1);
@@ -155,13 +159,13 @@ public class TicketView extends javax.swing.JDialog{
         debitRadio.setForeground(new java.awt.Color(255, 255, 255));
         debitRadio.setText("Debit");
 
-        ceditRadio.setBackground(new java.awt.Color(204, 0, 102));
-        buttonGroup1.add(ceditRadio);
-        ceditRadio.setForeground(new java.awt.Color(255, 255, 255));
-        ceditRadio.setText("Credit");
-        ceditRadio.addActionListener(new java.awt.event.ActionListener() {
+        creditRadio.setBackground(new java.awt.Color(204, 0, 102));
+        buttonGroup1.add(creditRadio);
+        creditRadio.setForeground(new java.awt.Color(255, 255, 255));
+        creditRadio.setText("Credit");
+        creditRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ceditRadioActionPerformed(evt);
+                creditRadioActionPerformed(evt);
             }
         });
 
@@ -179,34 +183,33 @@ public class TicketView extends javax.swing.JDialog{
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(129, 129, 129)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(adultPriceLabel)
-                                    .addComponent(childPriceLabel))
-                                .addGap(43, 43, 43))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(seniorPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGap(129, 129, 129)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(childAmount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(adultAmount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(seniorAmount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 134, Short.MAX_VALUE))
+                            .addComponent(seniorLabel)
+                            .addComponent(childLabel)
+                            .addComponent(adultLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(adultPriceLabel)
+                            .addComponent(seniorPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(childPriceLabel))
+                        .addGap(20, 20, 20)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(childAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(adultAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(seniorAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 135, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(seniorLabel)
-                            .addComponent(adultLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(childLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ceditRadio)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(creditRadio)
                         .addGap(16, 16, 16)
                         .addComponent(debitRadio))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -219,16 +222,12 @@ public class TicketView extends javax.swing.JDialog{
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(seniorLabel)
-                            .addComponent(seniorPriceLabel))
-                        .addGap(22, 22, 22))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(seniorAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(seniorLabel)
+                    .addComponent(seniorPriceLabel)
+                    .addComponent(seniorAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(adultLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(adultPriceLabel)
@@ -241,7 +240,7 @@ public class TicketView extends javax.swing.JDialog{
                 .addGap(51, 51, 51)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(debitRadio, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(ceditRadio))
+                    .addComponent(creditRadio))
                 .addGap(7, 7, 7)
                 .addComponent(purchase)
                 .addContainerGap())
@@ -251,9 +250,7 @@ public class TicketView extends javax.swing.JDialog{
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,17 +268,21 @@ public class TicketView extends javax.swing.JDialog{
            }else if(getSeniorTickets() ==0 && getChildTickets() ==0 && getAdultTickets() ==0 ){
                 JOptionPane.showMessageDialog(null, "Must have a ticket picked to pay", "alert", 2);
                 return;
+           }else if(!creditRadio.isSelected() && !debitRadio.isSelected()){
+               JOptionPane.showMessageDialog(null, "Please pick either debit or credit", "alert", 2);
+               return;
            }
            try{
                 PaymentView pv;
                 String answer;
-               int price = (getSeniorTickets() * getSeniorPrice()) + (getChildTickets() * getChildPrice()) + (getAdultTickets() * getAdultPrice());
-                if(ceditRadio.isSelected()){
-                answer = ceditRadio.getText();
+               float price = (getSeniorTickets() * getSeniorPrice()) + (getChildTickets() * getChildPrice()) + (getAdultTickets() * getAdultPrice());
+                if(creditRadio.isSelected()){
+                answer = creditRadio.getText();
                 }else{
                     answer = debitRadio.getText();
                 }
                 pv=new PaymentView(theView, true, answer, price);
+                
                 pv.setLocationRelativeTo(null);
                 pv.setVisible(true);
             }catch(Exception ex){
@@ -290,9 +291,9 @@ public class TicketView extends javax.swing.JDialog{
             }
     }//GEN-LAST:event_purchaseActionPerformed
 
-    private void ceditRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ceditRadioActionPerformed
+    private void creditRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creditRadioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ceditRadioActionPerformed
+    }//GEN-LAST:event_creditRadioActionPerformed
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -300,10 +301,10 @@ public class TicketView extends javax.swing.JDialog{
     private javax.swing.JLabel adultLabel;
     private javax.swing.JLabel adultPriceLabel;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JRadioButton ceditRadio;
     private javax.swing.JSpinner childAmount;
     private javax.swing.JLabel childLabel;
     private javax.swing.JLabel childPriceLabel;
+    private javax.swing.JRadioButton creditRadio;
     private javax.swing.JRadioButton debitRadio;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel2;

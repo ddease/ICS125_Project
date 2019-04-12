@@ -15,12 +15,12 @@ public class PaymentView extends javax.swing.JDialog {
         private final MovieView theView;
     /**
      * Creates new form PaymentView
-     */ PaymentView(MovieView theView, boolean b, String answer, int priceTix) {
+     */ PaymentView(MovieView theView, boolean b, String answer, float priceTix) {
        super(theView,b);
        initComponents();
-       String price= "$";
-       price = price.valueOf(priceTix); 
-       priceLabel.setText(price);
+       
+       String price = String.valueOf(priceTix); 
+       priceLabel.setText("$"+price);
         this.theView=theView;
         if(answer.equals("Debit")){
            cvsJtextField.setEnabled(false);
@@ -54,6 +54,7 @@ public class PaymentView extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 153, 153));
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +71,11 @@ public class PaymentView extends javax.swing.JDialog {
         jLabel3.setOpaque(true);
 
         jButton1.setText("Confirm");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cancel");
 
@@ -148,11 +154,24 @@ public class PaymentView extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        RecieptView rv =new RecieptView( theView, true );
+                rv.setLocationRelativeTo(null);
+                rv.setVisible(true);
+
+
+
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
    
-    
+    String getPriceLabel(){
+        return priceLabel.getText();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cvsJtextField;

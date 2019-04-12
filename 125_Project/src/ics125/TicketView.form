@@ -29,9 +29,6 @@
     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="99" green="99" red="0" type="rgb"/>
     </Property>
-    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[500, 500]"/>
-    </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[425, 320]"/>
     </Property>
@@ -55,10 +52,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -79,43 +73,40 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jLabel2" min="-2" pref="152" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="adultPriceLabel" min="-2" max="-2" attributes="0"/>
-                                      <Component id="childPriceLabel" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="43" pref="43" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="seniorPriceLabel" min="-2" pref="57" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" pref="152" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="childAmount" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="adultAmount" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="seniorAmount" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="seniorLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="childLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="adultLabel" alignment="0" max="32767" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="adultPriceLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="seniorPriceLabel" min="-2" pref="57" max="-2" attributes="0"/>
+                              <Component id="childPriceLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="0" pref="134" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="childAmount" min="-2" max="-2" attributes="0"/>
+                      <Component id="adultAmount" min="-2" max="-2" attributes="0"/>
+                      <Component id="seniorAmount" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="0" pref="135" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="seniorLabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="adultLabel" min="-2" pref="119" max="-2" attributes="0"/>
-                              <Component id="childLabel" min="-2" max="-2" attributes="0"/>
-                          </Group>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="ceditRadio" min="-2" max="-2" attributes="0"/>
+                          <Component id="creditRadio" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                           <Component id="debitRadio" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -133,20 +124,13 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" pref="27" max="-2" attributes="0"/>
-                  <EmptySpace pref="29" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="seniorLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="seniorPriceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="seniorAmount" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                      </Group>
+                  <EmptySpace pref="28" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="seniorLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="seniorPriceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="seniorAmount" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="adultLabel" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                       <Component id="adultPriceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -161,7 +145,7 @@
                   <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="debitRadio" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="ceditRadio" min="-2" max="-2" attributes="0"/>
+                      <Component id="creditRadio" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                   <Component id="purchase" min="-2" max="-2" attributes="0"/>
@@ -229,7 +213,7 @@
             <Property name="text" type="java.lang.String" value="Debit"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="ceditRadio">
+        <Component class="javax.swing.JRadioButton" name="creditRadio">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="0" red="cc" type="rgb"/>
@@ -243,7 +227,7 @@
             <Property name="text" type="java.lang.String" value="Credit"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ceditRadioActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="creditRadioActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="purchase">
